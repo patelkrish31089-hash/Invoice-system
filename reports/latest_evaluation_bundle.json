@@ -1,0 +1,867 @@
+{
+  "duplicate": {
+    "artifact_hash_sha256": null,
+    "code_revision": "git-2026.10.24-m10.1",
+    "completed_at": "2026-10-28T11:39:51.144311+00:00",
+    "confidence_intervals": {
+      "near_duplicate_recall": {
+        "lower": 0.6457,
+        "method": "wilson_95",
+        "n": 7,
+        "status": "ok",
+        "upper": 1.0
+      },
+      "precision": {
+        "lower": 0.7412,
+        "method": "wilson_95",
+        "n": 11,
+        "status": "ok",
+        "upper": 1.0
+      },
+      "recall": {
+        "lower": 0.7412,
+        "method": "wilson_95",
+        "n": 11,
+        "status": "ok",
+        "upper": 1.0
+      }
+    },
+    "config_version": "cfg-v1.0",
+    "confusion_matrix": {
+      "fn": 0,
+      "fp": 0,
+      "tn": 9,
+      "tp": 11
+    },
+    "dataset_hash_sha256": "fa1c0cac765513bc4aea61c9ff863488a814b735d81ea8c4c136903bf9fa633e",
+    "dataset_split": "holdout_test",
+    "dataset_version_id": "18b595f6-382a-4fed-b3b4-c3e01508682f",
+    "eligible_count": 20,
+    "environment": "development",
+    "error_examples": [],
+    "excluded_count": 0,
+    "exclusion_reasons": {},
+    "ground_truth_source": "duplicate_detection/storage/duplicate_evaluation_report.json",
+    "id": "0cddaa96-cb8d-41a3-a93d-d9c0b2dee4bc",
+    "limitations_note": "Evaluated across exact, near-duplicate, and recurring hard-negative strata",
+    "metrics": {
+      "evaluated": true,
+      "explainability_separation": null,
+      "field_metrics": null,
+      "scenario_breakdown": null,
+      "score_distribution_histogram": null,
+      "status_banner": "Evaluated across exact, near-duplicate, and recurring hard-negative strata",
+      "strata_counts": {
+        "exact_duplicates": 4,
+        "legitimate_recurring_negatives": 9,
+        "near_duplicates": 7
+      },
+      "strategy_metrics": {
+        "exact_sha256": {
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 2
+          },
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "hybrid_platt_lr": {
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 5
+          },
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "normalized_identity": {
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 2
+          },
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "visual_ssim_zone": {
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 2
+          },
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "summary": {
+        "cluster_completeness": 0.5455,
+        "cluster_purity": 1.0,
+        "exact_duplicate_recall": 1.0,
+        "f1": 1.0,
+        "false_positive_duplicate_alerts": 0,
+        "latency": {
+          "mean_ms": 45.757,
+          "p50_ms": 45.757,
+          "p95_ms": 45.757
+        },
+        "legitimate_recurring_false_positive_rate": 0.0,
+        "missed_duplicates": 0,
+        "near_duplicate_recall": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "model_name": "hybrid_lsh_platt_duplicate_scorer",
+    "model_version": "m4-platt-v1.0",
+    "run_type": "duplicate",
+    "sample_count": 20,
+    "started_at": "2026-10-28T11:39:51.143603+00:00",
+    "status": "completed",
+    "subgroup_metrics": {},
+    "tenant_id": "default",
+    "threshold_analysis": {},
+    "triggered_by": "cli-eval-runner"
+  },
+  "fraud": {
+    "artifact_hash_sha256": null,
+    "code_revision": "git-2026.10.24-m10.1",
+    "completed_at": "2026-10-28T11:39:51.202310+00:00",
+    "confidence_intervals": {
+      "pr_auc": {
+        "lower": 0.9638,
+        "method": "stratified_bootstrap_95",
+        "n_positives": 24,
+        "status": "ok",
+        "upper": 1.0
+      },
+      "precision": {
+        "lower": 0.7503,
+        "method": "wilson_95",
+        "n": 25,
+        "status": "ok",
+        "upper": 0.9778
+      },
+      "recall": {
+        "lower": 0.7976,
+        "method": "wilson_95",
+        "n": 24,
+        "status": "ok",
+        "upper": 0.9926
+      }
+    },
+    "config_version": "cfg-v1.0",
+    "confusion_matrix": {
+      "fn": 1,
+      "fp": 2,
+      "tn": 84,
+      "tp": 23
+    },
+    "dataset_hash_sha256": "56b1d37da27e18edd9dc474bb75fe511a494b239ec277e48144161b0e584308f",
+    "dataset_split": "holdout_test",
+    "dataset_version_id": "73a9a9a1-e400-4b31-9525-9a5f75e5aa09",
+    "eligible_count": 110,
+    "environment": "development",
+    "error_examples": [
+      {
+        "error_type": "false_negative",
+        "learned_model_attribution_advisory": [
+          "amount_zscore_90d",
+          "bank_change_recent_flag",
+          "near_approval_limit_flag"
+        ],
+        "normalized_score": 0.4452,
+        "rule_flags": [
+          "BANK_ACCOUNT_RECENT_CHANGE"
+        ],
+        "sample_id": "synth-fraud-pos-007"
+      },
+      {
+        "error_type": "false_positive",
+        "learned_model_attribution_advisory": [
+          "weekend_or_holiday_date_flag"
+        ],
+        "normalized_score": 0.5353,
+        "rule_flags": [
+          "WEEKEND_INVOICE_SUBMISSION"
+        ],
+        "sample_id": "synth-fraud-neg-000"
+      },
+      {
+        "error_type": "false_positive",
+        "learned_model_attribution_advisory": [
+          "weekend_or_holiday_date_flag"
+        ],
+        "normalized_score": 0.5209,
+        "rule_flags": [
+          "WEEKEND_INVOICE_SUBMISSION"
+        ],
+        "sample_id": "synth-fraud-neg-005"
+      }
+    ],
+    "excluded_count": 10,
+    "exclusion_reasons": {
+      "missing_or_unmatured_ground_truth": 10
+    },
+    "ground_truth_source": "synthetic_chronological_benchmark_with_maturity_guard",
+    "id": "cb42944e-60ab-49e0-91ab-f822c0bdd4ab",
+    "limitations_note": "Small positive class count (N_pos=24 < 30): wide confidence intervals; do NOT claim statistically reliable broad generalization.",
+    "metrics": {
+      "evaluated": true,
+      "explainability_separation": {
+        "attribution_disclaimer": "Feature attributions prioritize human investigation and are NEVER treated as proven cause of fraud.",
+        "records_exceeding_learned_model_threshold": 25,
+        "records_with_deterministic_rule_flags": 30
+      },
+      "field_metrics": null,
+      "scenario_breakdown": null,
+      "score_distribution_histogram": {
+        "bin_edges": [
+          0.0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0
+        ],
+        "counts": [
+          62,
+          19,
+          8,
+          11,
+          10
+        ]
+      },
+      "status_banner": "Evaluated on matured binary fraud outcomes (accuracy excluded as primary metric)",
+      "strata_counts": null,
+      "strategy_metrics": null,
+      "summary": {
+        "alert_volume": 25,
+        "brier_calibration_score": 0.0494,
+        "f1": 0.9388,
+        "false_negative_rate": 0.0417,
+        "false_positive_rate": 0.0233,
+        "mean_detection_lead_time_hours": 0.075,
+        "pr_auc": 0.9877,
+        "precision": 0.92,
+        "precision_at_10": 1.0,
+        "precision_at_5": 1.0,
+        "precision_at_review_capacity": 0.8214,
+        "recall": 0.9583,
+        "recall_at_review_capacity": 0.9583,
+        "reviewer_capacity_ratio": 0.25,
+        "roc_auc_supplementary": 0.9961
+      }
+    },
+    "model_name": "fraud_risk_ensemble",
+    "model_version": "sup-rf-synth-v1.0",
+    "run_type": "fraud",
+    "sample_count": 120,
+    "started_at": "2026-10-28T11:39:51.148709+00:00",
+    "status": "completed",
+    "subgroup_metrics": {},
+    "tenant_id": "default",
+    "threshold_analysis": {
+      "candidate_thresholds": [
+        {
+          "alert_volume": 36,
+          "expected_missed_fraud_cost": 0.0,
+          "expected_review_cost": 5400.0,
+          "expected_total_loss": 5400.0,
+          "f1": 0.8,
+          "fits_reviewer_capacity": false,
+          "fn": 0,
+          "fp": 12,
+          "precision": 0.6667,
+          "recall": 1.0,
+          "threshold": 0.25,
+          "tn": 74,
+          "tp": 24
+        },
+        {
+          "alert_volume": 30,
+          "expected_missed_fraud_cost": 0.0,
+          "expected_review_cost": 2700.0,
+          "expected_total_loss": 2700.0,
+          "f1": 0.8889,
+          "fits_reviewer_capacity": false,
+          "fn": 0,
+          "fp": 6,
+          "precision": 0.8,
+          "recall": 1.0,
+          "threshold": 0.35,
+          "tn": 80,
+          "tp": 24
+        },
+        {
+          "alert_volume": 28,
+          "expected_missed_fraud_cost": 85000.0,
+          "expected_review_cost": 2250.0,
+          "expected_total_loss": 87250.0,
+          "f1": 0.8846,
+          "fits_reviewer_capacity": true,
+          "fn": 1,
+          "fp": 5,
+          "precision": 0.8214,
+          "recall": 0.9583,
+          "threshold": 0.45,
+          "tn": 81,
+          "tp": 23
+        },
+        {
+          "alert_volume": 25,
+          "expected_missed_fraud_cost": 85000.0,
+          "expected_review_cost": 900.0,
+          "expected_total_loss": 85900.0,
+          "f1": 0.9388,
+          "fits_reviewer_capacity": true,
+          "fn": 1,
+          "fp": 2,
+          "precision": 0.92,
+          "recall": 0.9583,
+          "threshold": 0.5,
+          "tn": 84,
+          "tp": 23
+        },
+        {
+          "alert_volume": 21,
+          "expected_missed_fraud_cost": 255000.0,
+          "expected_review_cost": 0.0,
+          "expected_total_loss": 255000.0,
+          "f1": 0.9333,
+          "fits_reviewer_capacity": true,
+          "fn": 3,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.875,
+          "threshold": 0.6,
+          "tn": 86,
+          "tp": 21
+        },
+        {
+          "alert_volume": 17,
+          "expected_missed_fraud_cost": 595000.0,
+          "expected_review_cost": 0.0,
+          "expected_total_loss": 595000.0,
+          "f1": 0.8292,
+          "fits_reviewer_capacity": true,
+          "fn": 7,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.7083,
+          "threshold": 0.7,
+          "tn": 86,
+          "tp": 17
+        },
+        {
+          "alert_volume": 10,
+          "expected_missed_fraud_cost": 1190000.0,
+          "expected_review_cost": 0.0,
+          "expected_total_loss": 1190000.0,
+          "f1": 0.5883,
+          "fits_reviewer_capacity": true,
+          "fn": 14,
+          "fp": 0,
+          "precision": 1.0,
+          "recall": 0.4167,
+          "threshold": 0.8,
+          "tn": 86,
+          "tp": 10
+        }
+      ],
+      "cost_minimizing_candidate": {
+        "alert_volume": 25,
+        "expected_missed_fraud_cost": 85000.0,
+        "expected_review_cost": 900.0,
+        "expected_total_loss": 85900.0,
+        "f1": 0.9388,
+        "fits_reviewer_capacity": true,
+        "fn": 1,
+        "fp": 2,
+        "precision": 0.92,
+        "recall": 0.9583,
+        "threshold": 0.5,
+        "tn": 84,
+        "tp": 23
+      },
+      "fp_review_cost_unit": 450.0,
+      "governance_note": "Threshold comparison is advisory only; production threshold updates require versioned policy approval.",
+      "max_alerts_within_capacity": 28,
+      "missed_fraud_cost_unit": 85000.0,
+      "reviewer_capacity_ratio": 0.25
+    },
+    "triggered_by": "cli-eval-runner"
+  },
+  "golden_regression": {
+    "artifact_hash_sha256": null,
+    "code_revision": "git-2026.10.24-m10.1",
+    "completed_at": "2026-10-28T11:39:51.266707+00:00",
+    "confidence_intervals": {},
+    "config_version": "cfg-v1.0",
+    "confusion_matrix": {},
+    "dataset_hash_sha256": "empty-0000000000000000000000000000000000000000000000000000000000",
+    "dataset_split": "holdout_test",
+    "dataset_version_id": null,
+    "eligible_count": 152,
+    "environment": "development",
+    "error_examples": [],
+    "excluded_count": 10,
+    "exclusion_reasons": {
+      "missing_or_unmatured_ground_truth": 10
+    },
+    "ground_truth_source": "golden_multi_task_regression_suite_v1.0",
+    "id": "f912002e-9fb4-41a8-a23e-f3a656f51004",
+    "limitations_note": "Immutable golden regression baseline check; baselines are never auto-updated on failure.",
+    "metrics": {
+      "evaluated": true,
+      "explainability_separation": null,
+      "field_metrics": null,
+      "scenario_breakdown": null,
+      "score_distribution_histogram": null,
+      "status_banner": null,
+      "strata_counts": null,
+      "strategy_metrics": null,
+      "summary": {
+        "breach_count": 0,
+        "checks_evaluated": 9,
+        "duplicate_f1": 1.0,
+        "fraud_pr_auc": 0.9877,
+        "gate_passed": true,
+        "matching_decision_accuracy": 1.0,
+        "ocr_exact_match_accuracy": 1.0
+      }
+    },
+    "model_name": "full_pipeline_golden_suite",
+    "model_version": "pipeline-v1.0",
+    "run_type": "golden_regression",
+    "sample_count": 162,
+    "started_at": "2026-10-28T11:39:51.207096+00:00",
+    "status": "completed",
+    "subgroup_metrics": {
+      "gate_details": {
+        "baseline_policy_version": "golden-baseline-v1.0",
+        "breaches": [],
+        "checks_evaluated": 9,
+        "gate_passed": true
+      }
+    },
+    "tenant_id": "default",
+    "threshold_analysis": {},
+    "triggered_by": "cli-eval-runner"
+  },
+  "matching": {
+    "artifact_hash_sha256": null,
+    "code_revision": "git-2026.10.24-m10.1",
+    "completed_at": "2026-10-28T11:39:51.139148+00:00",
+    "confidence_intervals": {
+      "decision_accuracy": {
+        "lower": 0.8064,
+        "method": "wilson_95",
+        "n": 16,
+        "status": "ok",
+        "upper": 1.0
+      },
+      "exception_routing_accuracy": {
+        "lower": 0.7412,
+        "method": "wilson_95",
+        "n": 11,
+        "status": "ok",
+        "upper": 1.0
+      }
+    },
+    "config_version": "cfg-v1.0",
+    "confusion_matrix": {
+      "fn": 0,
+      "fp": 0,
+      "tn": 11,
+      "tp": 5
+    },
+    "dataset_hash_sha256": "89668325f885e41a3da924214fc8819bdaef9e8b16fe0bc11586baef965c4b17",
+    "dataset_split": "holdout_test",
+    "dataset_version_id": "aa980096-0cf3-4a53-9a46-335fc1744318",
+    "eligible_count": 16,
+    "environment": "development",
+    "error_examples": [],
+    "excluded_count": 0,
+    "exclusion_reasons": {},
+    "ground_truth_source": "three_way_matching/storage/matching_evaluation_report.json",
+    "id": "aeae0ca5-1a71-4d46-a8ce-0e4db204c705",
+    "limitations_note": "Evaluated across 8 canonical discrepancy categories under deterministic Decimal tolerance rules.",
+    "metrics": {
+      "evaluated": true,
+      "explainability_separation": null,
+      "field_metrics": null,
+      "scenario_breakdown": {
+        "duplicate_po": {
+          "accuracy": 1.0,
+          "sample_count": 1
+        },
+        "exact_match": {
+          "accuracy": 1.0,
+          "sample_count": 3
+        },
+        "missing_grn": {
+          "accuracy": 1.0,
+          "sample_count": 2
+        },
+        "missing_reference": {
+          "accuracy": 1.0,
+          "sample_count": 3
+        },
+        "partial_delivery": {
+          "accuracy": 1.0,
+          "sample_count": 1
+        },
+        "price_discrepancy": {
+          "accuracy": 1.0,
+          "sample_count": 4
+        },
+        "quantity_discrepancy": {
+          "accuracy": 1.0,
+          "sample_count": 1
+        },
+        "tolerance_match": {
+          "accuracy": 1.0,
+          "sample_count": 1
+        }
+      },
+      "score_distribution_histogram": null,
+      "status_banner": "Evaluated against adjudicated invoice-to-PO/GRN outcomes",
+      "strata_counts": null,
+      "strategy_metrics": null,
+      "summary": {
+        "correct_full_match_rate": 1.0,
+        "correct_partial_match_rate": null,
+        "decision_accuracy": 1.0,
+        "exception_routing_accuracy": 1.0,
+        "false_match_count": 0,
+        "false_match_rate": 0.0,
+        "false_unmatched_count": 0,
+        "false_unmatched_rate": 0.0,
+        "line_item_match_accuracy": 1.0,
+        "line_items_evaluated": 16,
+        "match_f1": 1.0,
+        "match_precision": 1.0,
+        "match_recall": 1.0,
+        "price_total_mismatch_detection_rate": 0.5,
+        "quantity_mismatch_detection_rate": 1.0,
+        "routed_exception_rate": 0.6875,
+        "tax_currency_mismatch_detection_rate": 1.0
+      }
+    },
+    "model_name": "three_way_po_grn_engine",
+    "model_version": "m3-policy-v1.0",
+    "run_type": "matching",
+    "sample_count": 16,
+    "started_at": "2026-10-28T11:39:51.138809+00:00",
+    "status": "completed",
+    "subgroup_metrics": {},
+    "tenant_id": "default",
+    "threshold_analysis": {},
+    "triggered_by": "cli-eval-runner"
+  },
+  "ocr": {
+    "artifact_hash_sha256": null,
+    "code_revision": "git-2026.10.24-m10.1",
+    "completed_at": "2026-10-28T11:39:51.130141+00:00",
+    "confidence_intervals": {
+      "document_exact_field_set_accuracy": {
+        "lower": 0.6097,
+        "method": "wilson_95",
+        "n": 6,
+        "status": "ok",
+        "upper": 1.0
+      },
+      "field_exact_match_accuracy": {
+        "lower": 0.9259,
+        "method": "wilson_95",
+        "n": 48,
+        "status": "ok",
+        "upper": 1.0
+      },
+      "mean_cer": {
+        "lower": 0.0,
+        "method": "bootstrap_95",
+        "n": 6,
+        "status": "ok",
+        "upper": 0.0
+      }
+    },
+    "config_version": "cfg-v1.0",
+    "confusion_matrix": {},
+    "dataset_hash_sha256": "aedd6e6563dafd5b8e994c5d2cfdb3f65fdc2989679c59a42d4645f4aac8302e",
+    "dataset_split": "holdout_test",
+    "dataset_version_id": "0cbf9280-1a1a-4c70-81f6-8c79718c96b3",
+    "eligible_count": 6,
+    "environment": "development",
+    "error_examples": [],
+    "excluded_count": 0,
+    "exclusion_reasons": {},
+    "ground_truth_source": "document_ingestion/samples/ground_truth_manifest.json + M1 SQLite",
+    "id": "12d2e098-6a9d-40d0-ba36-cf00d7688053",
+    "limitations_note": "Evaluated on repository ground-truth manifest (norm-v1.0); unseen supplier layouts require ongoing drift monitoring.",
+    "metrics": {
+      "evaluated": true,
+      "explainability_separation": null,
+      "field_metrics": {
+        "currency": {
+          "ci_95": {
+            "lower": 0.6097,
+            "method": "wilson_95",
+            "n": 6,
+            "status": "ok",
+            "upper": 1.0
+          },
+          "exact_match_accuracy": 1.0,
+          "f1": 1.0,
+          "labeled_count": 6,
+          "mae_by_currency": {},
+          "mean_relative_error": null,
+          "missing_rate": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "spurious_extractions": 0
+        },
+        "grand_total": {
+          "ci_95": {
+            "lower": 0.6097,
+            "method": "wilson_95",
+            "n": 6,
+            "status": "ok",
+            "upper": 1.0
+          },
+          "exact_match_accuracy": 1.0,
+          "f1": 1.0,
+          "labeled_count": 6,
+          "mae_by_currency": {
+            "INR": 0.0,
+            "USD": 0.0
+          },
+          "mean_relative_error": 0.0,
+          "missing_rate": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "spurious_extractions": 0
+        },
+        "invoice_date": {
+          "ci_95": {
+            "lower": 0.6097,
+            "method": "wilson_95",
+            "n": 6,
+            "status": "ok",
+            "upper": 1.0
+          },
+          "exact_match_accuracy": 1.0,
+          "f1": 1.0,
+          "labeled_count": 6,
+          "mae_by_currency": {},
+          "mean_relative_error": null,
+          "missing_rate": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "spurious_extractions": 0
+        },
+        "invoice_number": {
+          "ci_95": {
+            "lower": 0.6097,
+            "method": "wilson_95",
+            "n": 6,
+            "status": "ok",
+            "upper": 1.0
+          },
+          "exact_match_accuracy": 1.0,
+          "f1": 1.0,
+          "labeled_count": 6,
+          "mae_by_currency": {},
+          "mean_relative_error": null,
+          "missing_rate": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "spurious_extractions": 0
+        },
+        "subtotal": {
+          "ci_95": {
+            "lower": 0.6097,
+            "method": "wilson_95",
+            "n": 6,
+            "status": "ok",
+            "upper": 1.0
+          },
+          "exact_match_accuracy": 1.0,
+          "f1": 1.0,
+          "labeled_count": 6,
+          "mae_by_currency": {
+            "INR": 0.0,
+            "USD": 0.0
+          },
+          "mean_relative_error": 0.0,
+          "missing_rate": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "spurious_extractions": 0
+        },
+        "tax_total": {
+          "ci_95": {
+            "lower": 0.6097,
+            "method": "wilson_95",
+            "n": 6,
+            "status": "ok",
+            "upper": 1.0
+          },
+          "exact_match_accuracy": 1.0,
+          "f1": 1.0,
+          "labeled_count": 6,
+          "mae_by_currency": {
+            "INR": 0.0,
+            "USD": 0.0
+          },
+          "mean_relative_error": 0.0,
+          "missing_rate": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "spurious_extractions": 0
+        },
+        "vendor_gstin": {
+          "ci_95": {
+            "lower": 0.6097,
+            "method": "wilson_95",
+            "n": 6,
+            "status": "ok",
+            "upper": 1.0
+          },
+          "exact_match_accuracy": 1.0,
+          "f1": 1.0,
+          "labeled_count": 6,
+          "mae_by_currency": {},
+          "mean_relative_error": null,
+          "missing_rate": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "spurious_extractions": 0
+        },
+        "vendor_name": {
+          "ci_95": {
+            "lower": 0.6097,
+            "method": "wilson_95",
+            "n": 6,
+            "status": "ok",
+            "upper": 1.0
+          },
+          "exact_match_accuracy": 1.0,
+          "f1": 1.0,
+          "labeled_count": 6,
+          "mae_by_currency": {},
+          "mean_relative_error": null,
+          "missing_rate": 0.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "spurious_extractions": 0
+        }
+      },
+      "scenario_breakdown": null,
+      "score_distribution_histogram": null,
+      "status_banner": "Evaluated against versioned ground-truth dataset",
+      "strata_counts": null,
+      "strategy_metrics": null,
+      "summary": {
+        "confidence_distribution": {
+          "high_gte_0_90": 6,
+          "low_lt_0_75": 0,
+          "medium_0_75_to_0_90": 0
+        },
+        "date_accuracy": 1.0,
+        "document_exact_field_set_accuracy": 1.0,
+        "extraction_failure_rate": 0.0,
+        "field_completeness_rate": 1.0,
+        "field_exact_match_accuracy": 1.0,
+        "field_exact_match_status": "ok",
+        "field_f1": 1.0,
+        "field_precision": 1.0,
+        "field_recall": 1.0,
+        "mean_cer": 0.0,
+        "mean_wer": 0.0,
+        "missing_field_count": 0
+      }
+    },
+    "model_name": "tesseract_pymupdf_hybrid",
+    "model_version": "m1-m2-v1.0",
+    "run_type": "ocr",
+    "sample_count": 6,
+    "started_at": "2026-10-28T11:39:51.125145+00:00",
+    "status": "completed",
+    "subgroup_metrics": {
+      "by_document_category": {
+        "digital_pdf": {
+          "documents": 2,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 16
+        },
+        "mixed_pdf": {
+          "documents": 1,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 8
+        },
+        "scanned_noisy_png": {
+          "documents": 1,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 8
+        },
+        "scanned_png": {
+          "documents": 1,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 8
+        },
+        "tiff": {
+          "documents": 1,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 8
+        }
+      },
+      "by_scan_quality": {
+        "clean_scan": {
+          "documents": 2,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 16
+        },
+        "degraded_skewed_noisy": {
+          "documents": 1,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 8
+        },
+        "digital_native": {
+          "documents": 3,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 24
+        }
+      },
+      "by_vendor": {
+        "Apex Cloud Telemetry Inc": {
+          "documents": 1,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 8
+        },
+        "Kaveri Optical Sensors LLP": {
+          "documents": 1,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 8
+        },
+        "Surya Precision Components Pvt Ltd": {
+          "documents": 4,
+          "exact_match_accuracy": 1.0,
+          "labeled_fields": 32
+        }
+      }
+    },
+    "tenant_id": "default",
+    "threshold_analysis": {},
+    "triggered_by": "cli-eval-runner"
+  }
+}

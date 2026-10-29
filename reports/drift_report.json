@@ -1,0 +1,82 @@
+{
+  "model_version": "iforest-global-v1.0",
+  "feature_schema_version": "fraud-feat-v1.0",
+  "overall_drift_status": "critical",
+  "baseline_count": 222,
+  "current_count": 96,
+  "score_psi": 0.0,
+  "score_ks_stat": 0.0,
+  "score_ks_pvalue": 1.0,
+  "feature_drift": {
+    "log_grand_total_inr": {
+      "psi": 0.1031,
+      "ks_stat": 0.094,
+      "ks_pvalue": 0.55578,
+      "baseline_mean": 11.5871,
+      "current_mean": 11.634,
+      "status": "healthy"
+    },
+    "effective_tax_rate": {
+      "psi": 0.0,
+      "ks_stat": 0.0203,
+      "ks_pvalue": 1.0,
+      "baseline_mean": 0.1849,
+      "current_mean": 0.1856,
+      "status": "healthy"
+    },
+    "vendor_amount_robust_z": {
+      "psi": 0.3115,
+      "ks_stat": 0.0957,
+      "ks_pvalue": 0.5332,
+      "baseline_mean": 0.8072,
+      "current_mean": 0.8553,
+      "status": "critical"
+    },
+    "peer_category_amount_robust_z": {
+      "psi": 0.2599,
+      "ks_stat": 0.1239,
+      "ks_pvalue": 0.23178,
+      "baseline_mean": 0.6752,
+      "current_mean": 0.8186,
+      "status": "critical"
+    },
+    "unit_price_vs_vendor_item_log_ratio": {
+      "psi": 0.2355,
+      "ks_stat": 0.1337,
+      "ks_pvalue": 0.16364,
+      "baseline_mean": 0.054,
+      "current_mean": 0.1069,
+      "status": "warning"
+    },
+    "vendor_burst_7d_vs_90d_ratio": {
+      "psi": 0.0,
+      "ks_stat": 0.0,
+      "ks_pvalue": 1.0,
+      "baseline_mean": 0.0,
+      "current_mean": 0.0,
+      "status": "healthy"
+    },
+    "ocr_confidence_deficit": {
+      "psi": 0.1487,
+      "ks_stat": 0.163,
+      "ks_pvalue": 0.04967,
+      "baseline_mean": 0.0738,
+      "current_mean": 0.0678,
+      "status": "healthy"
+    }
+  },
+  "population_shifts": {
+    "category_tvd": 0.0625,
+    "currency_tvd": 0.0,
+    "new_vendors_in_recent_window": 3
+  },
+  "data_quality_shifts": {
+    "baseline_avg_missing_indicators": 0.252,
+    "current_avg_missing_indicators": 0.344,
+    "baseline_ocr_deficit": 0.0738,
+    "current_ocr_deficit": 0.0678
+  },
+  "retraining_recommended": true,
+  "recommendation_reason": "Critical distribution drift detected (max PSI=0.311 >= 0.25) on features ['vendor_amount_robust_z', 'peer_category_amount_robust_z', 'unit_price_vs_vendor_item_log_ratio']. Recommend controlled retraining & human review; production model remains unchanged.",
+  "methodology_limitation": "PSI uses 8 empirical reference quantile bins; drift indicates input/score distribution shift, not confirmed fraud."
+}

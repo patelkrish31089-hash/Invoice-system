@@ -1,0 +1,618 @@
+{
+  "evaluated_at": "2026-10-24T06:53:17.100253+00:00",
+  "feature_schema_version": "fraud-feat-v1.0",
+  "policy_version": "fraud-policy-2026.10.1",
+  "dataset_limitations_and_qualification": "Model comparison metrics below are measured on an isolated chronological test split of the reproducible multi-vendor synthetic AP dataset (`is_synthetic_record=True`). Live production Modules 1\u20134 currently contain 6 real invoices without historical confirmed fraud labels; therefore supervised production accuracy cannot yet be empirically claimed on real enterprise data (`production_supervised_label_status = 'insufficient_confirmed_labels'`).",
+  "hyperparameter_experiments": [
+    {
+      "n_estimators": 100,
+      "contamination": 0.1,
+      "f1_score": 0.9565,
+      "precision": 0.9167,
+      "recall": 1.0,
+      "pr_auc": 1.0,
+      "training_time_ms": 1121.461
+    },
+    {
+      "n_estimators": 100,
+      "contamination": 0.14,
+      "f1_score": 0.9565,
+      "precision": 0.9167,
+      "recall": 1.0,
+      "pr_auc": 1.0,
+      "training_time_ms": 1116.034
+    },
+    {
+      "n_estimators": 200,
+      "contamination": 0.1,
+      "f1_score": 0.9565,
+      "precision": 0.9167,
+      "recall": 1.0,
+      "pr_auc": 1.0,
+      "training_time_ms": 2439.492
+    },
+    {
+      "n_estimators": 200,
+      "contamination": 0.14,
+      "f1_score": 0.9565,
+      "precision": 0.9167,
+      "recall": 1.0,
+      "pr_auc": 1.0,
+      "training_time_ms": 2326.661
+    }
+  ],
+  "model_comparison": {
+    "isolation_forest": {
+      "has_valid_binary_ground_truth": true,
+      "sample_count": 55,
+      "positive_count": 11,
+      "negative_count": 44,
+      "decision_threshold": 39.0,
+      "confusion_matrix": {
+        "tp": 11,
+        "fp": 1,
+        "tn": 43,
+        "fn": 0
+      },
+      "precision": 0.9167,
+      "recall": 1.0,
+      "f1_score": 0.9565,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "false_positive_rate": 0.0227,
+      "false_negative_rate": 0.0,
+      "review_capacity_k": 10,
+      "precision_at_review_capacity": 1.0,
+      "recall_at_review_capacity": 0.9091,
+      "per_category_metrics": {
+        "industrial_chemicals": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "it_cloud_services": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "logistics_freight": {
+          "n": 9,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "precision_components": {
+          "n": 14,
+          "precision": 0.75,
+          "recall": 1.0
+        }
+      },
+      "training_time_ms": 2575.01,
+      "peak_training_memory_kb": 738.08
+    },
+    "local_outlier_factor": {
+      "has_valid_binary_ground_truth": true,
+      "sample_count": 55,
+      "positive_count": 11,
+      "negative_count": 44,
+      "decision_threshold": 25.0,
+      "confusion_matrix": {
+        "tp": 11,
+        "fp": 3,
+        "tn": 41,
+        "fn": 0
+      },
+      "precision": 0.7857,
+      "recall": 1.0,
+      "f1_score": 0.88,
+      "pr_auc": 0.9842,
+      "roc_auc": 0.9959,
+      "false_positive_rate": 0.0682,
+      "false_negative_rate": 0.0,
+      "review_capacity_k": 10,
+      "precision_at_review_capacity": 0.9,
+      "recall_at_review_capacity": 0.8182,
+      "per_category_metrics": {
+        "industrial_chemicals": {
+          "n": 13,
+          "precision": 0.5,
+          "recall": 1.0
+        },
+        "it_cloud_services": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "logistics_freight": {
+          "n": 9,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "precision_components": {
+          "n": 14,
+          "precision": 0.75,
+          "recall": 1.0
+        }
+      },
+      "training_time_ms": 117.505,
+      "peak_training_memory_kb": 736.36
+    },
+    "elliptic_envelope": {
+      "has_valid_binary_ground_truth": true,
+      "sample_count": 55,
+      "positive_count": 11,
+      "negative_count": 44,
+      "decision_threshold": 37.0,
+      "confusion_matrix": {
+        "tp": 11,
+        "fp": 0,
+        "tn": 44,
+        "fn": 0
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "review_capacity_k": 10,
+      "precision_at_review_capacity": 1.0,
+      "recall_at_review_capacity": 0.9091,
+      "per_category_metrics": {
+        "industrial_chemicals": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "it_cloud_services": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "logistics_freight": {
+          "n": 9,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "precision_components": {
+          "n": 14,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "training_time_ms": 97.465,
+      "peak_training_memory_kb": 275.92
+    },
+    "supervised_logistic_synthetic_split": {
+      "has_valid_binary_ground_truth": true,
+      "sample_count": 55,
+      "positive_count": 11,
+      "negative_count": 44,
+      "decision_threshold": 20.0,
+      "confusion_matrix": {
+        "tp": 11,
+        "fp": 0,
+        "tn": 44,
+        "fn": 0
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "review_capacity_k": 10,
+      "precision_at_review_capacity": 1.0,
+      "recall_at_review_capacity": 0.9091,
+      "per_category_metrics": {
+        "industrial_chemicals": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "it_cloud_services": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "logistics_freight": {
+          "n": 9,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "precision_components": {
+          "n": 14,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "training_time_ms": 35.491,
+      "peak_training_memory_kb": 331.52
+    },
+    "supervised_random_forest_synthetic_split": {
+      "has_valid_binary_ground_truth": true,
+      "sample_count": 55,
+      "positive_count": 11,
+      "negative_count": 44,
+      "decision_threshold": 20.0,
+      "confusion_matrix": {
+        "tp": 11,
+        "fp": 0,
+        "tn": 44,
+        "fn": 0
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "review_capacity_k": 10,
+      "precision_at_review_capacity": 1.0,
+      "recall_at_review_capacity": 0.9091,
+      "per_category_metrics": {
+        "industrial_chemicals": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "it_cloud_services": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "logistics_freight": {
+          "n": 9,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "precision_components": {
+          "n": 14,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "training_time_ms": 1570.715,
+      "peak_training_memory_kb": 433.98
+    },
+    "supervised_gradient_boosting_synthetic_split": {
+      "has_valid_binary_ground_truth": true,
+      "sample_count": 55,
+      "positive_count": 11,
+      "negative_count": 44,
+      "decision_threshold": 20.0,
+      "confusion_matrix": {
+        "tp": 11,
+        "fp": 0,
+        "tn": 44,
+        "fn": 0
+      },
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "pr_auc": 1.0,
+      "roc_auc": 1.0,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.0,
+      "review_capacity_k": 10,
+      "precision_at_review_capacity": 1.0,
+      "recall_at_review_capacity": 0.9091,
+      "per_category_metrics": {
+        "industrial_chemicals": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "it_cloud_services": {
+          "n": 13,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "logistics_freight": {
+          "n": 9,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "precision_components": {
+          "n": 14,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "training_time_ms": 153.362,
+      "peak_training_memory_kb": 688.55
+    }
+  },
+  "twenty_scenario_end_to_end_suite": {
+    "total_scenarios": 20,
+    "passed_scenarios": 20,
+    "pass_rate": 1.0,
+    "scorable_confusion_matrix": {
+      "tp": 8,
+      "fp": 0,
+      "tn": 11,
+      "fn": 0
+    },
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "scenarios": [
+      {
+        "scenario_id": "01_normal_invoice",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 3.9,
+        "triggered_detectors": [],
+        "summary": "Invoice 'APX-9001' (INR 82,128.00) scored 3.9/100 (low risk)."
+      },
+      {
+        "scenario_id": "02_extreme_invoice_amount",
+        "passed": true,
+        "expected_flagged": true,
+        "actual_flagged": true,
+        "execution_status": "completed",
+        "risk_category": "critical",
+        "composite_risk_score": 99.5,
+        "triggered_detectors": [
+          "statistical_detector",
+          "isolation_forest",
+          "local_outlier_factor",
+          "peer_group_detector"
+        ],
+        "summary": "Invoice 'APX-9002' (INR 885,000.00) triggered a CRITICAL suspicious transaction (Operational Risk Index 99.5/100). Invoice amount (INR 885,000.00) is 8.97x the vendor's historical median (INR 98,637.26, MAD robust Z=15.00 across 40 prior invoices). Invoice total is 8.70x the 'precision_components' peer median (INR 101,755.13) and is above the 99th percentile (INR 412,239.33 p99 across 79 peer invoices). Key signals: EXTREME_VENDOR_AMOUNT_ROBUST_Z, ISOLATION_FOREST_MULTIVARIATE_OUTLIER, DEEP_ISOLATION_TREE_SHORT_PATH_ANOMALY, LOCAL_OUTLIER_FACTOR_LOCAL_DENSITY_OUTLIER."
+      },
+      {
+        "scenario_id": "03_unusually_frequent_billing",
+        "passed": true,
+        "expected_flagged": true,
+        "actual_flagged": true,
+        "execution_status": "completed",
+        "risk_category": "medium",
+        "composite_risk_score": 60.09,
+        "triggered_detectors": [
+          "isolation_forest",
+          "local_outlier_factor",
+          "temporal_detector"
+        ],
+        "summary": "Invoice 'SWF-B99' (INR 51,920.00) triggered a MEDIUM anomaly alert (Operational Risk Index 60.09/100). Post-hoc perturbation check: setting 'has_po_context_flag' (0.0) to training median (1.0) reduces Isolation Forest anomaly intensity by 9.6 points (1.0 if linked PO exists, else 0.0.). Post-hoc perturbation check: setting 'split_invoice_48h_count' (1.0) to training median (0.0) reduces Isolation Forest anomaly intensity by 8.5 points (Count of prior invoices from same vendor within 48h whose combined value breaches an approval cutoff.). Key signals: ISOLATION_FOREST_MULTIVARIATE_OUTLIER, LOCAL_OUTLIER_FACTOR_LOCAL_DENSITY_OUTLIER, ABNORMAL_BILLING_FREQUENCY_BURST."
+      },
+      {
+        "scenario_id": "04_sudden_vendor_price_increase",
+        "passed": true,
+        "expected_flagged": true,
+        "actual_flagged": true,
+        "execution_status": "completed",
+        "risk_category": "critical",
+        "composite_risk_score": 99.5,
+        "triggered_detectors": [
+          "isolation_forest",
+          "local_outlier_factor",
+          "peer_group_detector",
+          "upstream_controls_detector"
+        ],
+        "summary": "Invoice 'APX-9004' (INR 193,520.00) triggered a CRITICAL suspicious transaction (Operational Risk Index 99.5/100). Invoice amount (INR 193,520.00) is 1.92x the vendor's historical median (INR 100,572.72, MAD robust Z=3.52 across 41 prior invoices). Invoice total is 1.88x the 'precision_components' peer median (INR 103,077.58) and is elevated relative to median (INR 822,858.81 p99 across 80 peer invoices). Key signals: ISOLATION_FOREST_MULTIVARIATE_OUTLIER, DEEP_ISOLATION_TREE_SHORT_PATH_ANOMALY, LOCAL_OUTLIER_FACTOR_LOCAL_DENSITY_OUTLIER, SUDDEN_VENDOR_UNIT_PRICE_INCREASE."
+      },
+      {
+        "scenario_id": "05_abnormal_quantity",
+        "passed": true,
+        "expected_flagged": true,
+        "actual_flagged": true,
+        "execution_status": "completed",
+        "risk_category": "critical",
+        "composite_risk_score": 99.5,
+        "triggered_detectors": [
+          "statistical_detector",
+          "isolation_forest",
+          "local_outlier_factor",
+          "peer_group_detector"
+        ],
+        "summary": "Invoice 'CHM-9005' (INR 453,120.00) triggered a CRITICAL suspicious transaction (Operational Risk Index 99.5/100). Invoice amount (INR 453,120.00) is 5.79x the vendor's historical median (INR 78,233.95, MAD robust Z=15.00 across 39 prior invoices). Invoice total is 4.46x the 'industrial_chemicals' peer median (INR 101,696.42) and is above the 95th percentile (INR 736,574.70 p99 across 78 peer invoices). Key signals: EXTREME_VENDOR_AMOUNT_ROBUST_Z, ABNORMAL_ORDER_QUANTITY_SPIKE, ISOLATION_FOREST_MULTIVARIATE_OUTLIER, DEEP_ISOLATION_TREE_SHORT_PATH_ANOMALY."
+      },
+      {
+        "scenario_id": "06_suspicious_invoice_splitting",
+        "passed": true,
+        "expected_flagged": true,
+        "actual_flagged": true,
+        "execution_status": "completed",
+        "risk_category": "critical",
+        "composite_risk_score": 99.5,
+        "triggered_detectors": [
+          "statistical_detector",
+          "isolation_forest",
+          "local_outlier_factor",
+          "temporal_detector"
+        ],
+        "summary": "Invoice 'MFC-906B' (INR 97,940.00) triggered a CRITICAL suspicious transaction (Operational Risk Index 99.5/100). Invoice amount (INR 97,940.00) is 2.26x the vendor's historical median (INR 43,278.77, MAD robust Z=4.22 across 38 prior invoices). Invoice total is 2.26x the 'facility_maintenance' peer median (INR 43,278.77) and is elevated relative to median (INR 127,946.00 p99 across 38 peer invoices). Key signals: SUSPICIOUS_INVOICE_SPLITTING_BELOW_APPROVAL_LIMIT, ISOLATION_FOREST_MULTIVARIATE_OUTLIER, LOCAL_OUTLIER_FACTOR_LOCAL_DENSITY_OUTLIER, SHORT_WINDOW_SPLIT_BILLING_SEQUENCE."
+      },
+      {
+        "scenario_id": "07_tax_inconsistency",
+        "passed": true,
+        "expected_flagged": true,
+        "actual_flagged": true,
+        "execution_status": "completed",
+        "risk_category": "critical",
+        "composite_risk_score": 88.05,
+        "triggered_detectors": [
+          "statistical_detector",
+          "isolation_forest",
+          "local_outlier_factor"
+        ],
+        "summary": "Invoice 'APX-9007' (INR 102,500.00) triggered a CRITICAL suspicious transaction (Operational Risk Index 88.05/100). Post-hoc perturbation check: setting 'effective_tax_rate' (0.35) to training median (0.18) reduces Isolation Forest anomaly intensity by 10.6 points (Ratio |tax_amount| / max(|subtotal|, 1.0).). Post-hoc perturbation check: setting 'split_invoice_48h_count' (2.0) to training median (0.0) reduces Isolation Forest anomaly intensity by 9.6 points (Count of prior invoices from same vendor within 48h whose combined value breaches an approval cutoff.). Key signals: HEADER_SUBTOTAL_TAX_TOTAL_MISMATCH, TAX_RATE_CALCULATION_DEVIATION, ISOLATION_FOREST_MULTIVARIATE_OUTLIER, DEEP_ISOLATION_TREE_SHORT_PATH_ANOMALY."
+      },
+      {
+        "scenario_id": "08_duplicate_invoice",
+        "passed": true,
+        "expected_flagged": true,
+        "actual_flagged": true,
+        "execution_status": "completed",
+        "risk_category": "critical",
+        "composite_risk_score": 99.5,
+        "triggered_detectors": [
+          "isolation_forest",
+          "local_outlier_factor",
+          "upstream_controls_detector"
+        ],
+        "summary": "Invoice 'APX-9001' (INR 82,128.00) triggered a CRITICAL suspicious transaction (Operational Risk Index 99.5/100). Post-hoc perturbation check: setting 'split_invoice_48h_count' (2.0) to training median (0.0) reduces Isolation Forest anomaly intensity by 17.7 points (Count of prior invoices from same vendor within 48h whose combined value breaches an approval cutoff.). Post-hoc perturbation check: setting 'has_po_context_flag' (0.0) to training median (1.0) reduces Isolation Forest anomaly intensity by 11.3 points (1.0 if linked PO exists, else 0.0.). Key signals: ISOLATION_FOREST_MULTIVARIATE_OUTLIER, LOCAL_OUTLIER_FACTOR_LOCAL_DENSITY_OUTLIER, UPSTREAM_EXACT_INVOICE_IDENTITY_DUPLICATE, DUPLICATE_OF_ALREADY_PAID_INVOICE."
+      },
+      {
+        "scenario_id": "09_near_duplicate_invoice",
+        "passed": true,
+        "expected_flagged": true,
+        "actual_flagged": true,
+        "execution_status": "completed",
+        "risk_category": "critical",
+        "composite_risk_score": 97.54,
+        "triggered_detectors": [
+          "isolation_forest",
+          "local_outlier_factor",
+          "upstream_controls_detector"
+        ],
+        "summary": "Invoice 'APX-9OO1' (INR 82,128.00) triggered a CRITICAL suspicious transaction (Operational Risk Index 97.54/100). Post-hoc perturbation check: setting 'split_invoice_48h_count' (3.0) to training median (0.0) reduces Isolation Forest anomaly intensity by 17.5 points (Count of prior invoices from same vendor within 48h whose combined value breaches an approval cutoff.). Post-hoc perturbation check: setting 'has_po_context_flag' (0.0) to training median (1.0) reduces Isolation Forest anomaly intensity by 11.1 points (1.0 if linked PO exists, else 0.0.). Key signals: ISOLATION_FOREST_MULTIVARIATE_OUTLIER, LOCAL_OUTLIER_FACTOR_LOCAL_DENSITY_OUTLIER, UPSTREAM_PROBABLE_DUPLICATE."
+      },
+      {
+        "scenario_id": "10_legitimate_credit_note",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 0.0,
+        "triggered_detectors": [],
+        "summary": "Invoice 'CN-APX-9010' (INR -11,800.00) scored 0.0/100 (low risk). Recognized as a credit note referencing 'APX-9001'."
+      },
+      {
+        "scenario_id": "11_legitimate_seasonal_spending_increase",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 9.77,
+        "triggered_detectors": [],
+        "summary": "Invoice 'KAV-Q4-110' (INR 135,700.00) scored 9.77/100 (low risk)."
+      },
+      {
+        "scenario_id": "12_new_vendor_little_historical_data",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 8.54,
+        "triggered_detectors": [],
+        "summary": "Invoice 'FPT-0001' (INR 80,240.00) scored 8.54/100 (low risk). Vendor history contains only 0 invoice(s), so vendor-specific baseline comparison has limited reliability."
+      },
+      {
+        "scenario_id": "13_legitimate_one_time_high_value_purchase",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 30.0,
+        "triggered_detectors": [
+          "isolation_forest",
+          "local_outlier_factor"
+        ],
+        "summary": "Invoice 'CLD-CAPEX-01' (INR 1,368,800.00) scored 30.0/100 (low risk)."
+      },
+      {
+        "scenario_id": "14_vendor_inconsistent_but_legitimate_pricing",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 5.2,
+        "triggered_detectors": [],
+        "summary": "Invoice 'NEX-SOW-44' (INR 233,640.00) scored 5.2/100 (low risk)."
+      },
+      {
+        "scenario_id": "15_missing_purchase_order",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 36.35,
+        "triggered_detectors": [
+          "isolation_forest",
+          "local_outlier_factor"
+        ],
+        "summary": "Invoice 'MFC-UTIL-15' (INR 35,400.00) scored 36.35/100 (low risk)."
+      },
+      {
+        "scenario_id": "16_partial_goods_receipt",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 32.0,
+        "triggered_detectors": [],
+        "summary": "Invoice 'GPR-160' (INR 110,330.00) scored 32.0/100 (low risk)."
+      },
+      {
+        "scenario_id": "17_low_ocr_confidence",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 21.39,
+        "triggered_detectors": [
+          "isolation_forest",
+          "local_outlier_factor"
+        ],
+        "summary": "Invoice 'APX-SCAN-17' (INR 81,278.40) scored 21.39/100 (low risk)."
+      },
+      {
+        "scenario_id": "18_malformed_input",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "insufficient_data",
+        "risk_category": "insufficient_data",
+        "composite_risk_score": 0.0,
+        "triggered_detectors": [],
+        "summary": "Invoice 'APX-BAD-18' (INR -59,000.00) triggered a INSUFFICIENT_DATA anomaly alert (Operational Risk Index 0.0/100). Key signals: NEGATIVE_TOTAL_ON_STANDARD_INVOICE: Standard invoice has negative grand_total.."
+      },
+      {
+        "scenario_id": "19_new_currency_or_product_category",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 17.66,
+        "triggered_detectors": [
+          "local_outlier_factor"
+        ],
+        "summary": "Invoice 'GST-USD-19' (USD 1,000.00) scored 17.66/100 (low risk). Vendor history contains only 0 invoice(s), so vendor-specific baseline comparison has limited reliability."
+      },
+      {
+        "scenario_id": "20_previously_flagged_vendor_valid_corrective",
+        "passed": true,
+        "expected_flagged": false,
+        "actual_flagged": false,
+        "execution_status": "completed",
+        "risk_category": "low",
+        "composite_risk_score": 5.08,
+        "triggered_detectors": [],
+        "summary": "Invoice 'GPR-CLEAN-20' (INR 110,330.00) scored 5.08/100 (low risk)."
+      }
+    ]
+  },
+  "single_invoice_scoring_latency_ms": {
+    "mean": 39.61,
+    "p50": 39.624,
+    "p95": 76.943,
+    "max": 76.943
+  },
+  "audit_chain_valid": true
+}

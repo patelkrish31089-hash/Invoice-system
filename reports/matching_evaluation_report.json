@@ -1,0 +1,212 @@
+{
+  "total_scenarios": 16,
+  "decision_accuracy": 1.0,
+  "exception_detection_recall": 1.0,
+  "concurrent_double_allocation_prevented": true,
+  "concurrent_decisions_observed": [
+    "matched",
+    "partial_match"
+  ],
+  "audit_hash_chain_valid": true,
+  "audit_events_verified": 18,
+  "latency_ms": {
+    "mean": 15.076,
+    "max": 38.453
+  },
+  "scenarios": [
+    {
+      "scenario": "exact_partial_delivery_1",
+      "expected_decision": "matched",
+      "actual_decision": "matched",
+      "decision_match": true,
+      "expected_exceptions": [],
+      "actual_exceptions": [],
+      "latency_ms": 38.453
+    },
+    {
+      "scenario": "within_tolerance_second_invoice",
+      "expected_decision": "matched_within_tolerance",
+      "actual_decision": "matched_within_tolerance",
+      "decision_match": true,
+      "expected_exceptions": [],
+      "actual_exceptions": [],
+      "latency_ms": 13.009
+    },
+    {
+      "scenario": "cumulative_over_order_and_receipt",
+      "expected_decision": "review_required",
+      "actual_decision": "review_required",
+      "decision_match": true,
+      "expected_exceptions": [
+        "QUANTITY_OVER_ORDER",
+        "QUANTITY_OVER_RECEIPT"
+      ],
+      "actual_exceptions": [
+        "QUANTITY_OVER_ORDER",
+        "QUANTITY_OVER_RECEIPT"
+      ],
+      "latency_ms": 15.08
+    },
+    {
+      "scenario": "prompt_example_prior_invoice_30",
+      "expected_decision": "matched",
+      "actual_decision": "matched",
+      "decision_match": true,
+      "expected_exceptions": [],
+      "actual_exceptions": [],
+      "latency_ms": 12.38
+    },
+    {
+      "scenario": "prompt_example_over_receipt_and_4pct_price_variance",
+      "expected_decision": "review_required",
+      "actual_decision": "review_required",
+      "decision_match": true,
+      "expected_exceptions": [
+        "QUANTITY_OVER_RECEIPT",
+        "PRICE_VARIANCE"
+      ],
+      "actual_exceptions": [
+        "PRICE_VARIANCE",
+        "QUANTITY_OVER_RECEIPT"
+      ],
+      "latency_ms": 13.868
+    },
+    {
+      "scenario": "credit_note_reversal",
+      "expected_decision": "matched",
+      "actual_decision": "matched",
+      "decision_match": true,
+      "expected_exceptions": [],
+      "actual_exceptions": [],
+      "latency_ms": 14.67
+    },
+    {
+      "scenario": "missing_po",
+      "expected_decision": "missing_po",
+      "actual_decision": "missing_po",
+      "decision_match": true,
+      "expected_exceptions": [
+        "PO_NOT_FOUND"
+      ],
+      "actual_exceptions": [
+        "PO_NOT_FOUND"
+      ],
+      "latency_ms": 13.347
+    },
+    {
+      "scenario": "missing_grn",
+      "expected_decision": "missing_grn",
+      "actual_decision": "missing_grn",
+      "decision_match": true,
+      "expected_exceptions": [
+        "GRN_NOT_FOUND"
+      ],
+      "actual_exceptions": [
+        "GRN_NOT_FOUND"
+      ],
+      "latency_ms": 12.702
+    },
+    {
+      "scenario": "supplier_mismatch_blocked",
+      "expected_decision": "blocked",
+      "actual_decision": "blocked",
+      "decision_match": true,
+      "expected_exceptions": [
+        "SUPPLIER_MISMATCH"
+      ],
+      "actual_exceptions": [
+        "SUPPLIER_MISMATCH"
+      ],
+      "latency_ms": 13.336
+    },
+    {
+      "scenario": "currency_mismatch_blocked",
+      "expected_decision": "blocked",
+      "actual_decision": "blocked",
+      "decision_match": true,
+      "expected_exceptions": [
+        "CURRENCY_MISMATCH"
+      ],
+      "actual_exceptions": [
+        "CURRENCY_MISMATCH"
+      ],
+      "latency_ms": 13.313
+    },
+    {
+      "scenario": "cancelled_po_blocked",
+      "expected_decision": "blocked",
+      "actual_decision": "blocked",
+      "decision_match": true,
+      "expected_exceptions": [
+        "PO_CANCELLED"
+      ],
+      "actual_exceptions": [
+        "GRN_NOT_FOUND",
+        "PO_CANCELLED"
+      ],
+      "latency_ms": 12.427
+    },
+    {
+      "scenario": "approved_po_amendment_governed",
+      "expected_decision": "matched",
+      "actual_decision": "matched",
+      "decision_match": true,
+      "expected_exceptions": [],
+      "actual_exceptions": [],
+      "latency_ms": 12.891
+    },
+    {
+      "scenario": "rejected_goods_receipt_blocked",
+      "expected_decision": "blocked",
+      "actual_decision": "blocked",
+      "decision_match": true,
+      "expected_exceptions": [
+        "RECEIPT_REJECTED"
+      ],
+      "actual_exceptions": [
+        "RECEIPT_REJECTED"
+      ],
+      "latency_ms": 13.357
+    },
+    {
+      "scenario": "indian_gst_interstate_wrong_tax",
+      "expected_decision": "review_required",
+      "actual_decision": "review_required",
+      "decision_match": true,
+      "expected_exceptions": [
+        "TAX_VARIANCE"
+      ],
+      "actual_exceptions": [
+        "DUPLICATE_CANDIDATE",
+        "TAX_VARIANCE"
+      ],
+      "latency_ms": 14.424
+    },
+    {
+      "scenario": "grand_total_discrepancy",
+      "expected_decision": "review_required",
+      "actual_decision": "review_required",
+      "decision_match": true,
+      "expected_exceptions": [
+        "TOTAL_VARIANCE"
+      ],
+      "actual_exceptions": [
+        "TOTAL_VARIANCE"
+      ],
+      "latency_ms": 13.625
+    },
+    {
+      "scenario": "duplicate_invoice_candidate",
+      "expected_decision": "review_required",
+      "actual_decision": "review_required",
+      "decision_match": true,
+      "expected_exceptions": [
+        "DUPLICATE_CANDIDATE"
+      ],
+      "actual_exceptions": [
+        "DUPLICATE_CANDIDATE"
+      ],
+      "latency_ms": 14.34
+    }
+  ]
+}

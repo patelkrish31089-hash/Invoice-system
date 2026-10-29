@@ -1,0 +1,10 @@
+{
+  "verified_at": "2026-10-28T11:40:54.072532+00:00",
+  "archive_format": "tar.gz",
+  "clean_hygiene_passed": true,
+  "included_files_count": 595,
+  "excluded_runtime_or_cache_files_count": 1723,
+  "archive_size_bytes": 21249161,
+  "archive_sha256": "45a44ac93aa6d92a15556707e978d4f0eb3de861d8b6d85b96fdc994a12407e0",
+  "violations": []
+}

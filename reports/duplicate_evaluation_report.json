@@ -1,0 +1,383 @@
+{
+  "canonical_end_to_end_scenarios": {
+    "total_labeled_test_cases": 20,
+    "confusion_matrix": {
+      "tp": 11,
+      "fp": 0,
+      "tn": 9,
+      "fn": 0
+    },
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 0.0,
+    "exact_duplicate_detection_rate": 1.0,
+    "near_duplicate_detection_rate": 1.0,
+    "candidate_generation_recall": 1.0,
+    "recall_at_fixed_60pct_review_workload": 1.0,
+    "average_candidates_per_invoice": 0.95,
+    "reviewer_overturn_rate_sample": 0.0
+  },
+  "held_out_family_split_noisy_stress_set": {
+    "total_pairs": 880,
+    "distinct_unseen_families": 880,
+    "confusion_matrix": {
+      "tp": 390,
+      "fp": 14,
+      "tn": 476,
+      "fn": 0
+    },
+    "operating_threshold": 0.42,
+    "precision": 0.9653,
+    "recall": 1.0,
+    "f1_score": 0.9823,
+    "false_positive_rate": 0.0286,
+    "false_negative_rate": 0.0,
+    "brier_calibration_loss": 0.0127,
+    "recall_at_50pct_review_workload": 1.0,
+    "precision_recall_curve_sample": [
+      {
+        "threshold": 0.0005,
+        "precision": 0.4432,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.0028,
+        "precision": 0.4924,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.0058,
+        "precision": 0.554,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.0138,
+        "precision": 0.6331,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.0228,
+        "precision": 0.7386,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.0417,
+        "precision": 0.8864,
+        "recall": 1.0
+      },
+      {
+        "threshold": 0.9404,
+        "precision": 0.9886,
+        "recall": 0.8923
+      },
+      {
+        "threshold": 0.9804,
+        "precision": 1.0,
+        "recall": 0.6769
+      },
+      {
+        "threshold": 0.9904,
+        "precision": 1.0,
+        "recall": 0.4513
+      },
+      {
+        "threshold": 0.9945,
+        "precision": 1.0,
+        "recall": 0.2256
+      }
+    ]
+  },
+  "latency_ms": {
+    "mean": 76.896,
+    "p50": 37.75,
+    "p95": 178.477,
+    "max": 452.518
+  },
+  "precision_recall_curve_canonical": [
+    {
+      "threshold": 0.0,
+      "precision": 0.55,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.0004,
+      "precision": 0.6111,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.0263,
+      "precision": 0.6471,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.0377,
+      "precision": 0.6875,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.06,
+      "precision": 0.7333,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.2461,
+      "precision": 0.8462,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.35,
+      "precision": 0.9167,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.8969,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "threshold": 0.9507,
+      "precision": 1.0,
+      "recall": 0.9091
+    },
+    {
+      "threshold": 0.98,
+      "precision": 1.0,
+      "recall": 0.8182
+    },
+    {
+      "threshold": 0.9816,
+      "precision": 1.0,
+      "recall": 0.5455
+    },
+    {
+      "threshold": 0.9853,
+      "precision": 1.0,
+      "recall": 0.4545
+    },
+    {
+      "threshold": 0.9919,
+      "precision": 1.0,
+      "recall": 0.3636
+    },
+    {
+      "threshold": 0.9951,
+      "precision": 1.0,
+      "recall": 0.2727
+    },
+    {
+      "threshold": 1.0,
+      "precision": 1.0,
+      "recall": 0.1818
+    },
+    {
+      "threshold": 1.0,
+      "precision": 1.0,
+      "recall": 0.0
+    }
+  ],
+  "audit_hash_chain_valid": true,
+  "scenarios": [
+    {
+      "scenario": "exact_1_same_pdf_twice",
+      "category": "exact_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "exact_document_duplicate",
+      "score": 1.0,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "exact_2_different_filename_email_channel",
+      "category": "exact_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "exact_document_duplicate",
+      "score": 1.0,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "exact_3_reformatted_punct_and_case_paid_invoice",
+      "category": "exact_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "exact_invoice_identity_duplicate",
+      "score": 0.98,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "exact_4_whitespace_normalized_identity",
+      "category": "exact_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "exact_invoice_identity_duplicate",
+      "score": 0.98,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "near_1_ocr_O_instead_of_0_and_I_instead_of_1",
+      "category": "near_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "probable_duplicate",
+      "score": 0.9919,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "near_2_ocr_B_instead_of_8_and_reordered_lines",
+      "category": "near_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "probable_duplicate",
+      "score": 0.9816,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "near_3_scanned_noisy_version_of_digital_pdf",
+      "category": "near_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "probable_duplicate",
+      "score": 0.9951,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "near_4_same_supplier_amount_2day_diff_altered_inv_no",
+      "category": "near_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "probable_duplicate",
+      "score": 0.9507,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "near_5_same_inv_no_conflicting_total",
+      "category": "near_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "probable_duplicate",
+      "score": 0.8969,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "near_6_visually_modified_bank_account_region",
+      "category": "near_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "probable_duplicate",
+      "score": 0.98,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "near_7_small_rounding_tax_tweak_leading_zero_diff",
+      "category": "near_duplicate",
+      "expected_duplicate_alert": true,
+      "predicted_duplicate_alert": true,
+      "classification": "probable_duplicate",
+      "score": 0.9853,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "neg_1_monthly_recurring_saas_identical_amount",
+      "category": "hard_negative",
+      "expected_duplicate_alert": false,
+      "predicted_duplicate_alert": false,
+      "classification": "related_but_distinct_invoice",
+      "score": 0.0263,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "neg_2_different_shipment_against_same_po",
+      "category": "hard_negative",
+      "expected_duplicate_alert": false,
+      "predicted_duplicate_alert": false,
+      "classification": "related_but_distinct_invoice",
+      "score": 0.0004,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "neg_3_same_invoice_number_used_by_different_supplier",
+      "category": "hard_negative",
+      "expected_duplicate_alert": false,
+      "predicted_duplicate_alert": false,
+      "classification": "not_duplicate",
+      "score": 0.06,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "neg_4_similar_supplier_name_different_verified_gstin",
+      "category": "hard_negative",
+      "expected_duplicate_alert": false,
+      "predicted_duplicate_alert": false,
+      "classification": "not_duplicate",
+      "score": 0.06,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "neg_5_legitimate_credit_note_referencing_original",
+      "category": "hard_negative",
+      "expected_duplicate_alert": false,
+      "predicted_duplicate_alert": false,
+      "classification": "credit_note_or_replacement",
+      "score": 0.2461,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "neg_6_legitimate_resubmission_after_rejected_invoice",
+      "category": "hard_negative",
+      "expected_duplicate_alert": false,
+      "predicted_duplicate_alert": false,
+      "classification": "credit_note_or_replacement",
+      "score": 0.35,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "neg_7_installment_milestone_invoice_distinct_tranche",
+      "category": "hard_negative",
+      "expected_duplicate_alert": false,
+      "predicted_duplicate_alert": false,
+      "classification": "related_but_distinct_invoice",
+      "score": 0.0,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "neg_8_same_numerical_total_incompatible_currency_usd_vs_inr",
+      "category": "hard_negative",
+      "expected_duplicate_alert": false,
+      "predicted_duplicate_alert": false,
+      "classification": "not_duplicate",
+      "score": 0.0377,
+      "candidates_compared": 1,
+      "correct": true
+    },
+    {
+      "scenario": "neg_9_completely_unrelated_new_invoice",
+      "category": "hard_negative",
+      "expected_duplicate_alert": false,
+      "predicted_duplicate_alert": false,
+      "classification": "not_duplicate",
+      "score": 0.0,
+      "candidates_compared": 0,
+      "correct": true
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "total_cases": 13,
+  "metrics": {
+    "classification_accuracy": 1.0,
+    "header_field_exact_match_accuracy": 1.0,
+    "date_normalization_accuracy": 1.0,
+    "tax_id_gstin_accuracy": 1.0,
+    "monetary_field_tolerance_accuracy": 1.0,
+    "line_item_precision": 1.0,
+    "line_item_recall": 1.0,
+    "line_item_f1": 1.0,
+    "review_routing_accuracy": 1.0,
+    "validation_rule_detection_recall": 1.0
+  },
+  "confidence_calibration": {
+    "high": {
+      "field_count": 62,
+      "empirical_accuracy": 1.0
+    },
+    "medium": {
+      "field_count": 38,
+      "empirical_accuracy": 1.0
+    },
+    "low": {
+      "field_count": 3,
+      "empirical_accuracy": 1.0
+    }
+  },
+  "latency_per_page_ms": {
+    "mean": 4.49,
+    "p50": 3.2,
+    "p95": 5.33,
+    "max": 17.37
+  },
+  "cases": [
+    {
+      "case_id": "01_clean_indian_gst_intrastate",
+      "classified_type": "tax_invoice",
+      "classification_match": true,
+      "invoice_number": "000458/26-27",
+      "grand_total": "141600.00",
+      "line_items_extracted": 2,
+      "requires_review": false,
+      "review_routing_match": true,
+      "validation_rules_triggered": [],
+      "duration_ms": 17.37
+    },
+    {
+      "case_id": "02_clean_indian_igst_interstate",
+      "classified_type": "tax_invoice",
+      "classification_match": true,
+      "invoice_number": "BPC/26-27/1092",
+      "grand_total": "100300.00",
+      "line_items_extracted": 2,
+      "requires_review": false,
+      "review_routing_match": true,
+      "validation_rules_triggered": [],
+      "duration_ms": 5.33
+    },
+    {
+      "case_id": "03_clean_international_usd",
+      "classified_type": "standard_invoice",
+      "classification_match": true,
+      "invoice_number": "NS-2026-9042",
+      "grand_total": "15406.25",
+      "line_items_extracted": 2,
+      "requires_review": false,
+      "review_routing_match": true,
+      "validation_rules_triggered": [],
+      "duration_ms": 4.51
+    },
+    {
+      "case_id": "04_scanned_ocr_invoice",
+      "classified_type": "tax_invoice",
+      "classification_match": true,
+      "invoice_number": "KOS-2026-077",
+      "grand_total": "64900.00",
+      "line_items_extracted": 2,
+      "requires_review": false,
+      "review_routing_match": true,
+      "validation_rules_triggered": [],
+      "duration_ms": 5.16
+    },
+    {
+      "case_id": "05_multipage_continuing_table",
+      "classified_type": "tax_invoice",
+      "classification_match": true,
+      "invoice_number": "ACC/2026/501",
+      "grand_total": "200600.00",
+      "line_items_extracted": 3,
+      "requires_review": false,
+      "review_routing_match": true,
+      "validation_rules_triggered": [],
+      "duration_ms": 4.75
+    },
+    {
+      "case_id": "06_discount_shipping_roundoff",
+      "classified_type": "tax_invoice",
+      "classification_match": true,
+      "invoice_number": "DIF-2026-312",
+      "grand_total": "58200.00",
+      "line_items_extracted": 1,
+      "requires_review": false,
+      "review_routing_match": true,
+      "validation_rules_triggered": [],
+      "duration_ms": 4.15
+    },
+    {
+      "case_id": "07_credit_note_negative",
+      "classified_type": "credit_note",
+      "classification_match": true,
+      "invoice_number": "CN-2026-0044",
+      "grand_total": "-11800.00",
+      "line_items_extracted": 1,
+      "requires_review": false,
+      "review_routing_match": true,
+      "validation_rules_triggered": [],
+      "duration_ms": 3.72
+    },
+    {
+      "case_id": "08_purchase_order_misleading_filename",
+      "classified_type": "purchase_order",
+      "classification_match": true,
+      "invoice_number": null,
+      "grand_total": "47200.00",
+      "line_items_extracted": 0,
+      "requires_review": true,
+      "review_routing_match": true,
+      "validation_rules_triggered": [
+        "DOC_CLASS_NON_PAYABLE",
+        "REQ_CRITICAL_FIELD_MISSING"
+      ],
+      "duration_ms": 3.04
+    },
+    {
+      "case_id": "09_unknown_non_invoice_doc",
+      "classified_type": "unknown",
+      "classification_match": true,
+      "invoice_number": null,
+      "grand_total": null,
+      "line_items_extracted": 0,
+      "requires_review": true,
+      "review_routing_match": true,
+      "validation_rules_triggered": [
+        "DOC_CLASS_UNKNOWN",
+        "REQ_CRITICAL_FIELD_MISSING"
+      ],
+      "duration_ms": 1.37
+    },
+    {
+      "case_id": "10_valid_invoice_without_po",
+      "classified_type": "standard_invoice",
+      "classification_match": true,
+      "invoice_number": "ELA-2026-119",
+      "grand_total": "30000.00",
+      "line_items_extracted": 1,
+      "requires_review": false,
+      "review_routing_match": true,
+      "validation_rules_triggered": [],
+      "duration_ms": 2.84
+    },
+    {
+      "case_id": "11_conflicting_grand_total_candidates",
+      "classified_type": "tax_invoice",
+      "classification_match": true,
+      "invoice_number": "VTS-2026-660",
+      "grand_total": "29500.00",
+      "line_items_extracted": 0,
+      "requires_review": true,
+      "review_routing_match": true,
+      "validation_rules_triggered": [
+        "EVID_COMPETING_FIELD_CANDIDATES"
+      ],
+      "duration_ms": 2.52
+    },
+    {
+      "case_id": "12_invalid_gstin_checksum",
+      "classified_type": "tax_invoice",
+      "classification_match": true,
+      "invoice_number": "ZPI-2026-404",
+      "grand_total": "23600.00",
+      "line_items_extracted": 0,
+      "requires_review": true,
+      "review_routing_match": true,
+      "validation_rules_triggered": [
+        "FMT_GSTIN_CHECKSUM_MISMATCH"
+      ],
+      "duration_ms": 2.78
+    },
+    {
+      "case_id": "13_deliberate_arithmetic_mismatch",
+      "classified_type": "tax_invoice",
+      "classification_match": true,
+      "invoice_number": "OFM-9902",
+      "grand_total": "49200.00",
+      "line_items_extracted": 1,
+      "requires_review": true,
+      "review_routing_match": true,
+      "validation_rules_triggered": [
+        "FIN_GRAND_TOTAL_RECONCILIATION_ERROR"
+      ],
+      "duration_ms": 3.2
+    }
+  ]
+}
